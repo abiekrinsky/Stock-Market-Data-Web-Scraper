@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 import requests, bs4
+from bs4 import BeautifulSoup
 res = requests.get('http://finance.yahoo.com')
 res.raise_for_status()
-noStarchSoup = bs4.BeautifulSoup(res.text, "lxml")
+noStarchSoup = bs4.BeautifulSoup(res.text)
 
 SnP = noStarchSoup.select('span[data-reactid="8"]')
 Dow = noStarchSoup.select('span[data-reactid="13"]')
