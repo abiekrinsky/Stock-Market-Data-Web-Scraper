@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import requests, bs4
-from bs4 import BeautifulSoup
+import requests, bs4, re
 res = requests.get('http://finance.yahoo.com')
 res.raise_for_status()
 noStarchSoup = bs4.BeautifulSoup(res.text)
